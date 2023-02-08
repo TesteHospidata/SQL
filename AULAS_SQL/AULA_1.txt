@@ -1,0 +1,28 @@
+CREATE SCHEMA teste;
+
+CREATE TABLE loja.usuario(
+	usuario_id SERIAL PRIMARY KEY,
+	nome VARCHAR(150) NOT NULL,
+	email VARCHAR(250) NOT NULL,
+	cpf VARCHAR(15)
+);
+SELECT * FROM loja.usuario;
+
+CREATE TABLE loja.produtos(
+	produto_id SERIAL PRIMARY KEY,
+	nome VARCHAR(150) NOT NULL,
+	descricao TEXT,
+	preco FLOAT,
+	novo BOOLEAN -- TRUE ou FALSE
+);
+SELECT * FROM loja.produtos;
+
+CREATE TABLE loja.pedidos(
+	pedido_id SERIAL PRIMARY KEY,
+	produto_id INT,
+	usuario_id INT,
+	quantidade INT,
+	data_compra TIMESTAMP DEFAULT NOW()
+);
+SELECT * FROM loja.pedidos
+
